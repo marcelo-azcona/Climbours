@@ -1,0 +1,176 @@
+@import '../../general-styles.scss';
+
+.navigation {
+  &__button {
+    display: block;
+    background-color: $color-white;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    z-index: 200;
+    border: transparent;
+    text-align: center;
+    cursor: pointer;
+
+    @include responsive(phone600) {
+      top: 3rem;
+      right: 3rem;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    margin-top: 1.4rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 3px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.75rem;
+    }
+
+    &::after {
+      top: 0.75rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__button &__icon--close,
+  &__button:hover &__icon--close {
+    background-color: transparent;
+
+    &::after {
+      top: 0;
+      transform: rotate(50deg);
+    }
+
+    &::before {
+      top: 0;
+      transform: rotate(-50deg);
+    }
+  }
+
+  &__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 150;
+  }
+
+  &__background {
+    // CON CSStransition es la posición FINAL, donde va a quedar la animación
+    height: 100vh;
+    width: 44rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    list-style: none;
+    text-align: center;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    opacity: 1;
+
+    @include responsive(phone600) {
+      width: 100%;
+      height: 100vh;
+    }
+  }
+
+  /** CSS Transitions CLASSES */
+  &__open {
+    // Estado inicia de la animación con respecto a la posición final
+    opacity: 0;
+    transform: translate(500px);
+  }
+
+  &__openActive {
+    // Lo que se va a animar. En este caso se va a trasladar de derecha (oculto) a la izquierda (que es la posición final)
+    opacity: 1;
+    transform: translateX(0px);
+    transition: all 0.5s;
+  }
+
+  &__close {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  &__closeActive {
+    opacity: 0;
+    transform: translate(500px);
+    transition: all 0.5s;
+  }
+  /** CSS Transitions CLASSES */
+
+  &__list {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  &__item {
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      font-size: 2.4rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 220%; // I use it with linear-gradient to move one of the gradient to the side. 100% means default. 200% the color goes to the right.
+      transition: all 0.4s;
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary;
+    }
+  }
+}

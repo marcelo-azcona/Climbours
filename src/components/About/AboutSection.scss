@@ -1,0 +1,53 @@
+@import '../../general-styles.scss';
+
+.section-about {
+  background-color: $color-grey-light-1;
+  padding: 24rem 0;
+  margin-top: -20vh;
+}
+
+.grid-about {
+  display: grid;
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 6.4rem;
+  margin-bottom: 3.2rem;
+
+  @include responsive(tab-port900) {
+    text-align: center;
+    width: 80%;
+    grid-template-columns: 1fr;
+    margin-bottom: 20rem;
+  }
+
+  @include responsive(tab-port900) {
+    width: 100%;
+    margin-bottom: 6.4rem;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 4px;
+    font-size: $default-font-size;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary-dark;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+}

@@ -1,0 +1,83 @@
+@import '../../general-styles.scss';
+
+.testimony {
+  width: 55%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 4rem rgba($color-black, 0.15);
+  background-color: rgba($color-white, 0.75);
+  border-radius: 3px;
+  padding: 6.2rem;
+  font-size: $default-font-size;
+  display: flex;
+  gap: 6.4rem;
+  transform: skewX(-12deg);
+  overflow: hidden;
+  text-align: left;
+
+  & > * {
+    transform: skewX(12deg);
+
+    @include responsive(phone600) {
+      transform: skewX(0);
+    }
+  }
+
+  @include responsive(tab-port900) {
+    width: 80%;
+    padding: 4.8rem;
+  }
+
+  @include responsive(phone600) {
+    transform: skewX(0);
+    padding: 3.2rem;
+    width: 95%;
+    gap: 2.4rem;
+  }
+
+  @include responsive(phone400) {
+    transform: skewX(0);
+    padding: 3.2rem;
+    width: 95%;
+    gap: 2.4rem;
+  }
+
+  &__shape {
+    flex: 0 0 16rem;
+    height: 16rem;
+    position: relative;
+
+    @include responsive(phone400) {
+      flex: 0 0 12rem;
+      height: 12rem;
+    }
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: $default-font-size;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.8s;
+  }
+
+  &:hover &__caption {
+    // In this case its like "when i hover the testimony element i want to change the testimony__caption"
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    filter: blur(3px) brightness(70%);
+  }
+}

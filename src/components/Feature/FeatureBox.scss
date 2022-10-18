@@ -1,0 +1,30 @@
+@import '../../general-styles.scss';
+
+.feature-box {
+  background-color: rgba($color-white, 0.8);
+
+  font-size: 1.6rem;
+  padding: 2.4rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.6rem 4rem rgba($color-black, 0.15);
+  transition: all 0.3s;
+
+  @include responsive(tab-land1200) {
+    flex: 1 1 40%;
+  }
+
+  @include responsive(tab-port900) {
+    flex: 1 1 80%;
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.05);
+  }
+
+  &__icon {
+    font-size: 6.2rem;
+    margin-bottom: 6.4rem;
+    color: $color-primary-dark;
+  }
+}

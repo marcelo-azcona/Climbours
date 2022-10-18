@@ -1,0 +1,35 @@
+@import '../../general-styles.scss';
+
+.section-feature {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.4),
+      rgba($color-primary-dark, 0.4)
+    ),
+    url('../../assets/img/nat-4.jpg');
+  background-size: cover;
+  transform: skewY(-6deg);
+  margin-top: -11rem;
+
+  & > * {
+    transform: skewY(6deg);
+  }
+}
+
+.container-feature {
+  display: flex;
+  gap: 5.2rem;
+  width: 90%;
+  margin: 0 auto;
+
+  @include responsive(tab-land1200) {
+    width: 70%;
+    flex-wrap: wrap;
+    gap: 3.6rem;
+  }
+
+  @include responsive(tab-port900) {
+    width: 70%;
+  }
+}

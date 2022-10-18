@@ -1,0 +1,56 @@
+@import '../../general-styles.scss';
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.4),
+      rgba($color-primary-dark, 0.4)
+    ),
+    url('../../assets/img/hero.jpg');
+  background-size: cover;
+  background-position: top;
+  position: relative; /* Parent Element */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    position: absolute; /* NEEDs Position: Relative in the parent element to work*/
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__text-box {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__logo {
+    height: 4.2rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  background-color: inherit;
+  color: inherit;
+
+  @include responsive(phone600) {
+    margin-top: 5rem;
+  }
+}
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(3.6rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

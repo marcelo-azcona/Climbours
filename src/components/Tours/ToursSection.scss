@@ -1,0 +1,29 @@
+@import '../../general-styles.scss';
+
+.section-tours {
+  background-color: $color-grey-light-1;
+  padding: 28rem 0 14rem 0;
+  margin-top: -11rem;
+  text-align: center;
+  height: 100%;
+}
+
+.container__tours {
+  display: flex;
+  gap: 5.2rem;
+  width: 120rem;
+  margin: 0 auto;
+  gap: 6.4rem;
+  height: 52rem; // Same height that the card__side
+
+  @include responsive(tab-land1200) {
+    padding: 0 2rem;
+    width: 100%;
+  }
+
+  @include responsive(tab-port900) {
+    flex-wrap: wrap;
+    height: 100%;
+    width: 70%;
+  }
+}

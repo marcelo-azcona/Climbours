@@ -1,0 +1,231 @@
+@import '../../general-styles.scss';
+
+.card {
+  // CARD FUNCTIONALITY
+  perspective: 150rem;
+  flex: 1 1 100%;
+  position: relative;
+
+  &__side {
+    height: 52rem;
+    transition: all 1s;
+    font-size: 1.8rem;
+    position: absolute; // To put the two side of the card in the same place
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden; // To hide the card in the back
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    overflow: hidden;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+
+  &__img {
+    background-size: cover;
+    height: 24rem;
+    background-blend-mode: color; // To blend the img with the linear-gradient color
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../../assets/img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url(../../assets/img/nat-6.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url(../../assets/img/nat-7.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.6rem;
+    -webkit-box-decoration-break: clone; // To break the element between the dos word in the card
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.85),
+        rgba($color-primary-dark, 0.85)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    padding: 1rem;
+
+    ul {
+      list-style-type: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.6rem;
+        padding: 1.2rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__price-box {
+    text-align: center;
+    margin-bottom: 8.6rem;
+    color: $color-white;
+  }
+
+  &__price-only {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6.2rem;
+    font-weight: 100;
+  }
+
+  //-----------------------------------------------------//
+  // COMPLETE REWRITE OF THE CARD FOR TABLETS AND PHONES //
+  //-----------------------------------------------------//
+
+  @include responsive(tab-port900) {
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+
+    &__side {
+      height: auto;
+      font-size: 1.8rem;
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 6.4rem 4.8rem 4.8rem 4.8rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-only {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+    }
+
+    &__price-value {
+      font-size: 6.2rem;
+      font-weight: 100;
+    }
+  }
+}

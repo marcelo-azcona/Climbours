@@ -1,0 +1,21 @@
+@import '../../general-styles.scss';
+
+.title-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph-about {
+  font-size: 1.6rem;
+
+  &:not(:last-child) {
+    margin-bottom: 6.4rem;
+  }
+
+  & + a {
+    @include responsive(phone600) {
+      margin-top: -1.6rem;
+    }
+  }
+}

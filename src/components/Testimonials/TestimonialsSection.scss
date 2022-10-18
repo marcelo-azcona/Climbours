@@ -1,0 +1,13 @@
+@import '../../general-styles.scss';
+
+.section-testimonials {
+  padding: 14rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.container-testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 6.4rem;
+}

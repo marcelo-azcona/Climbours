@@ -1,0 +1,73 @@
+@import '../../general-styles.scss';
+
+.section-booking {
+  padding: 16rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
+}
+
+.book {
+  background-image: linear-gradient(
+      100deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../../assets//img/nat-10.jpg);
+
+  background-size: cover;
+  border-radius: 3px;
+  box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+  height: 50rem;
+  width: 70%;
+  margin: 0 auto;
+
+  &__form {
+    width: 50%;
+    padding: 6.2rem;
+
+    @include responsive(tab-land1200) {
+      width: 70%;
+    }
+
+    @include responsive(phone600) {
+      width: 100%;
+    }
+  }
+
+  @include responsive(tab-land1200) {
+    background-image: linear-gradient(
+        100deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 70%,
+        transparent 70%
+      ),
+      url(../../assets//img/nat-10.jpg);
+    width: 80%;
+  }
+
+  @include responsive(tab-port900) {
+    width: 90%;
+    background-image: linear-gradient(
+        100deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 75%,
+        transparent 75%
+      ),
+      url(../../assets//img/nat-10.jpg);
+  }
+
+  @include responsive(phone600) {
+    text-align: center;
+    width: 80%;
+    background-image: linear-gradient(
+        to right,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 100%
+      ),
+      url(../../assets//img/nat-10.jpg);
+  }
+}

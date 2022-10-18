@@ -1,0 +1,100 @@
+@import '../../general-styles.scss';
+
+.heading__primary {
+  color: $color-white;
+  text-transform: uppercase;
+  margin-bottom: 4.8rem;
+
+  &--main {
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.6rem;
+
+    animation: moveInLeft 1.2s ease-out;
+
+    @include responsive(phone600) {
+      letter-spacing: 1.2rem;
+    }
+  }
+
+  &--sub {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 1.8rem;
+    animation: moveInRight 1.2s ease-out;
+
+    @include responsive(phone600) {
+      letter-spacing: 0.5rem;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(-3%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(3%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.heading-secondary {
+  display: inline-block;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+
+  @include responsive(tab-port900) {
+    font-size: 2.4rem;
+  }
+
+  @include responsive(phone600) {
+    font-size: 2rem;
+  }
+}
+
+.heading-tertiary {
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  background-clip: text;
+  color: transparent;
+}
